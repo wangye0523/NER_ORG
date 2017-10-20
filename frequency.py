@@ -54,13 +54,13 @@ for i in f:
             if tmp[0] not in e:
                 e[tmp[0]] = {}
                 #e[tmp[0]][tmp[1]] = 1
-            if tmp[1][-1]==']':
-                tmp[1] = tmp[1][:-1]
-            if ']' not in tmp[1]:
-                if tmp[1] not in e[tmp[0]]:
-                    e[tmp[0]][tmp[1]] = 1
-                else:
-                    e[tmp[0]][tmp[1]]+=1
+            if ']' in tmp[1]:
+                tmp[1] = tmp[1].split(']')[0]
+
+            if tmp[1] not in e[tmp[0]]:
+                e[tmp[0]][tmp[1]] = 1
+            else:
+                e[tmp[0]][tmp[1]]+=1
 
 
 
